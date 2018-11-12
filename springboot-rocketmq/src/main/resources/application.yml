@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: springboot-rocketmq
+
+server:
+  port: 8182
+
+rocketmq:
+  consumer:
+    groupName: ${spring.application.name}
+    namesrvAddr: mqserver:9876
+  producer:
+    groupName: ${spring.application.name}
+    namesrvAddr: mqserver:9876
+    fefault: false
