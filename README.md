@@ -1,5 +1,20 @@
 # hello-world
 各种应用的helloworld
-springboot
-rocketmq
-netty
+
+## jdbc
+最后更新：2018-12-12  
+
+## mybatis
+最后更新：2018-12-12  
+纯MyBatis使用  
+与Spring结合使用  
+与SpringBoot结合使用
+
+## hibernate
+最后更新：2018-12-12
+
+## springboot
+
+## rocketmq
+
+## netty
