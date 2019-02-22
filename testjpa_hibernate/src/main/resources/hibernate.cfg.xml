@@ -12,7 +12,7 @@
         <!-- hibernate.connection.password : 连接数据库的密码 -->
         <property name="hibernate.connection.password">123456</property>
         <!-- hibernate.connection.url : 连接数据库的地址,路径 -->
-        <property name="hibernate.connection.url">jdbc:mysql://192.168.9.51:3306/test1</property>
+        <property name="hibernate.connection.url">jdbc:mysql://dbserver:3306/test1</property>
         <property name="show_sql">false</property>
         <property name="format_sql">true</property>
         <!-- hbm2ddl.auto: 生成表结构的策略配置

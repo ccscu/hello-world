@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class TestServlet extends HttpServlet {
     public TestServlet() {
@@ -19,17 +20,20 @@ public class TestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        String idStr = req.getParameter("id");
+        PrintWriter out = resp.getWriter();
         String nameStr = req.getParameter("name");
+        if (nameStr == null || "".equals(nameStr)) {
+            out.println("Parameter name is required!");
+            return;
+        }
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
+        Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(new Employee(idStr, nameStr));
+        session.save(new Employee(nameStr));
+        session.getTransaction().commit();
         session.close();
-        sessionFactory.close();
-        resp.getWriter().println("Successfully!");
+        out.println("Add " + nameStr + " successfully!");
     }
 
     @Override
