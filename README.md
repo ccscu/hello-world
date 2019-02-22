@@ -15,7 +15,7 @@
 与SpringBoot结合使用
 
 ## hibernate
-最后更新：2018-12-12
+演示如何查询
 
 ## springboot
 
